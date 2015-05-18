@@ -1,5 +1,0 @@
-module.exports = {
-  ADD_PHRASE: 'ADD_PHRASE',
-  REMOVE_PHRASE: 'REMOVE_PHRASE',
-  LOAD_PHRASES: 'LOAD_PHRASES'
-};
