@@ -28,9 +28,7 @@ var PhraseStore = Fluxxor.createStore({
   },
 
   getState() {
-    return {
-      phrases: this.phrases
-    };
+    return this.phrases;
   }
 });
 

@@ -5,13 +5,15 @@ var FluxMixin = Fluxxor.FluxMixin(React);
 var StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
 var PageHeader = require('react-bootstrap/lib/PageHeader');
-var Row = require('react-bootstrap/lib/Row');
-var Col = require('react-bootstrap/lib/Col');
 var PhraseButton = require('./phrase-button');
 
 var LazinessApp = React.createClass({
 
   mixins: [FluxMixin, StoreWatchMixin('PhraseStore')],
+
+  componentDidMount() {
+    this.getFlux().actions.phrases.loadPhrases();
+  },
 
   getStateFromFlux() {
     var flux = this.getFlux();
@@ -24,15 +26,10 @@ var LazinessApp = React.createClass({
     return (
       <div className="container">
         <PageHeader>Laziness <small>Because this is super necessary</small></PageHeader>
-        <Row>
-          {['xbox pause', 'xbox play'].map((phrase) => {
-            return (
-              <Col md={1}>
-                <PhraseButton phrase={phrase} />
-              </Col>
-            );
-          }) }
-        </Row>
+
+        {this.state.phrases.map((phrase, i) => {
+          return <PhraseButton key={i} phrase={phrase} />
+        })}
       </div>
     );
   }
