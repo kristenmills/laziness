@@ -2,6 +2,7 @@ var React = require('react');
 var Fluxxor = require('fluxxor');
 var FluxMixin = Fluxxor.FluxMixin(React);
 var StoreWatchMixin = Fluxxor.StoreWatchMixin;
+var PageHeader = require('react-bootstrap/lib/PageHeader');
 
 var LazinessApp = React.createClass({
 
@@ -15,7 +16,9 @@ var LazinessApp = React.createClass({
 
   render: function() {
     return (
-      <h1>Hello World</h1>
+      <div className="container">
+        <PageHeader>Laziness <small>Because this is super necessary</small></PageHeader>
+      </div>
     );
   }
 });
