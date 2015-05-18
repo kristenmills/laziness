@@ -1,1 +1,3 @@
-module.exports = {}
+module.exports = {
+  phrases: require('./phrases')
+}
